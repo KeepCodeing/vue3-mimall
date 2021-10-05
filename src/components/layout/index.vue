@@ -1,6 +1,6 @@
 <template>
   <el-container class="h-full">
-    <el-header style="padding: 0" height="auto">
+    <el-header style="padding: 0; z-index: 100" height="auto">
       <nav-header
         :showMenus="containerConfig.headerConfig?.showMenus"
         :showActions="containerConfig.headerConfig?.showActions"
@@ -15,10 +15,10 @@
         </template>
       </nav-header>
     </el-header>
-    <el-main>
+    <el-main style="padding: 0; overflow: unset">
       <slot name="content">content</slot>
     </el-main>
-    <el-footer>
+    <el-footer style="padding: 0">
       <slot name="footer">
         <nav-footer />
       </slot>
