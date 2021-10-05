@@ -8,7 +8,14 @@
         <login-form />
       </div>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <el-footer>
+      <div class="flex items-center justify-center text-xl font-thin h-28">
+        <p class="text-gray-300">
+          I am Login footer, it's useless, but I will still write it on next
+          components
+        </p>
+      </div>
+    </el-footer>
   </el-container>
 </template>
 

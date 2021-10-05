@@ -53,15 +53,14 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue';
+import { useStore } from 'vuex';
+import { GET_LOING_INFO } from '@/store/types';
 
 export default defineComponent({
   setup() {
     const loginForm = ref<any>(null);
-    const submitLogin = () => {
-      loginForm.value?.validate((valid: boolean) => {
-        console.log(valid);
-      });
-    };
+    const store = useStore();
+
     const account = reactive({
       username: '',
       password: ''
@@ -70,6 +69,13 @@ export default defineComponent({
       username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
       password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
     });
+
+    const submitLogin = () => {
+      loginForm.value?.validate((valid: boolean) => {
+        if (valid) store.dispatch(`login/${GET_LOING_INFO}`, account);
+      });
+    };
+
     return {
       account,
       rules,

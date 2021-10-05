@@ -13,12 +13,14 @@ module.exports = {
       })
     ]
   },
-  proxy: {
-    '/api': {
-      target: 'http://mall-pre.springboot.cn',
-      changeOrigin: true,
-      pathRewrite: {
-        '/api': ''
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://mall-pre.springboot.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '/api': ''
+        }
       }
     }
   }
