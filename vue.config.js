@@ -12,5 +12,14 @@ module.exports = {
         resolvers: [ElementPlusResolver()]
       })
     ]
+  },
+  proxy: {
+    '/api': {
+      target: 'http://mall-pre.springboot.cn',
+      changeOrigin: true,
+      pathRewrite: {
+        '/api': ''
+      }
+    }
   }
 };
