@@ -10,4 +10,5 @@ export interface UserInfo {
 
 export interface ILogin {
   userInfo: UserInfo;
+  isLogin: boolean;
 }

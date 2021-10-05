@@ -54,7 +54,7 @@
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue';
 import { useStore } from 'vuex';
-import { GET_LOING_INFO } from '@/store/types';
+import { GET_LOGING_INFO } from '@/store/types';
 
 export default defineComponent({
   setup() {
@@ -72,7 +72,7 @@ export default defineComponent({
 
     const submitLogin = () => {
       loginForm.value?.validate((valid: boolean) => {
-        if (valid) store.dispatch(`login/${GET_LOING_INFO}`, account);
+        if (valid) store.dispatch(`login/${GET_LOGING_INFO}`, account);
       });
     };
 
