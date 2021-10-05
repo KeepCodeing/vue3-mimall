@@ -8,7 +8,10 @@
         :userState="userState"
       >
         <template #header-menu>
-          <slot name="header"></slot>
+          <slot name="header"> </slot>
+        </template>
+        <template #header-product-menu>
+          <slot name="product-menu"></slot>
         </template>
       </nav-header>
     </el-header>

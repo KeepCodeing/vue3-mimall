@@ -2,7 +2,7 @@
   <div class="text-xs font-medium text-gray-400">
     <div class="flex items-center justify-between h-10 bg-gray-700 px-28">
       <div v-if="showMenus">
-        <slot name="header-menu">
+        <slot name="header-menu" :menuList="menuList">
           <ul class="flex">
             <li
               v-for="item in menuList"
@@ -37,16 +37,25 @@
         </div>
       </div>
     </div>
+    <div>
+      <slot name="header-product-menu">
+        <product-drawer />
+      </slot>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { IMenuList } from '../types/header';
 import { useStore } from 'vuex';
 import { USER_LOG_OUT } from '@/store/types';
+import { phoneProductList } from './data/phone.data';
+import { tvProductList } from './data/tv.data';
+import ProductDrawer from './product-drawer.vue';
 
 export default defineComponent({
+  components: { ProductDrawer },
   props: {
     menuList: {
       type: Array as PropType<IMenuList[]>,
@@ -71,8 +80,21 @@ export default defineComponent({
       store.dispatch(`login/${USER_LOG_OUT}`);
       window.location.reload();
     };
+    const prodcutFlag = ref(false);
+    const curProductList = ref(phoneProductList);
+
+    const showProductList = (productList: any) => {
+      curProductList.value = productList;
+      productList.value = true;
+    };
+
     return {
-      logout
+      logout,
+      phoneProductList,
+      tvProductList,
+      curProductList,
+      showProductList,
+      prodcutFlag
     };
   }
 });
