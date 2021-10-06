@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import { Login } from './routes/login';
 import { Home } from './routes/home';
 import { Product } from './routes/product';
+import { Detail } from './routes/detail';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,7 +11,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   Login,
   Home,
-  Product
+  Product,
+  Detail
 ];
 
 const router = createRouter({

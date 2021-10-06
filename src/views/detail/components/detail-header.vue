@@ -5,13 +5,6 @@
       <span class="px-2 service-item">概述</span>
       <span class="px-2 service-item">参数</span>
       <span class="px-2 service-item">用户评价</span>
-      <div
-        style="background: rgb(255, 102, 0)"
-        class="inline-block px-5 py-1 ml-2 text-white cursor-pointer"
-        @click="$router.push('/detail')"
-      >
-        立即购买
-      </div>
     </div>
   </div>
 </template>
